@@ -37,7 +37,11 @@ function App() {
       }
     }
     // si no hay ganador
-    return null
+    return false
+  }
+
+  const checkEndGame = (newBoard) => {
+    return newBoard.every((square) => square !== null)
   }
 
   const updateBoard = (index) => {
@@ -55,7 +59,11 @@ function App() {
 
     // Comprobar si hay ganador
     const newWinner = checkWinner(newBoard)
-    if (newWinner) setWinner(newWinner)
+    if (newWinner) {
+      setWinner(newWinner)
+    } else if (checkEndGame(newBoard)) {
+      return setWinner(false)
+    }
   }
 
   const resetGame = () => {
@@ -82,9 +90,11 @@ function App() {
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
 
+      <button onClick={resetGame}>Reiniciar</button>
+
       {winner !== null && (
         <section className="winner">
-          <div className='text'>
+          <div className="text">
             <h2>{winner === false ? 'Empate' : 'Ganador:'}</h2>
             <header className="win">
               {winner && <Square>{winner}</Square>}
