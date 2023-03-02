@@ -74,7 +74,7 @@ function App() {
 
   return (
     <main className="board">
-      <h1>Choy un tres en raya</h1>
+      <h1>Tic Tac Toe</h1>
       <section className="game">
         {board.map((_, index) => {
           return (
@@ -90,7 +90,7 @@ function App() {
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
 
-      <button onClick={resetGame}>Reiniciar</button>
+      <button onClick={resetGame}>Replay</button>
 
       {winner !== null && (
         <section className="winner">
@@ -101,7 +101,7 @@ function App() {
             </header>
 
             <footer>
-              <button onClick={resetGame}>Reiniciar</button>
+              <button onClick={resetGame}>Replay</button>
             </footer>
           </div>
         </section>
