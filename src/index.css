@@ -5,21 +5,27 @@
   line-height: 24px;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  color: var(--primary-color);
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --bg-color: #f8fbfb;
+  --body-color: #f3f3f3;
+  --primary-color: #ff9d00;
+  --text-color: #272343;
+
 }
 
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -37,7 +43,7 @@ body {
 }
 
 .board h1 {
-  color: #eee;
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
@@ -45,8 +51,8 @@ body {
   padding: 8px 12px;
   margin: 25px;
   background: transparent;
-  border: 2px solid #eee;
-  color: #eee;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
   width: 100px;
   border-radius: 5px;
   transition: 0.2s;
@@ -55,8 +61,8 @@ body {
 }
 
 .board button:hover {
-  background: #eee;
-  color: #222;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .board .game {
@@ -83,8 +89,8 @@ body {
 }
 
 .square.is-selected {
-  color: #fff;
-  background: #09f;
+  color: var(--text-color);
+  background: var(--primary-color);
 }
 
 .winner {
@@ -99,10 +105,10 @@ body {
 }
 
 .winner .text {
-  background: #111;
+  background: var(--bg-color);
   height: 300px;
   width: 320px;
-  border: 2px solid #eee;
+  border: 2px solid var(--text-color);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -114,7 +120,7 @@ body {
 .winner .win {
   margin: 0 auto;
   width: fit-content;
-  border: 2px solid #eee;
+  border: 2px solid var(--text-color);
   border-radius: 10px;
   display: flex;
   gap: 15px;
@@ -123,7 +129,7 @@ body {
 .square {
   width: 100px;
   height: 100px;
-  border: 2px solid #eee;
+  border: 2px solid var(--text-color);
   border-radius: 5px;
   display: grid;
   place-items: center;
